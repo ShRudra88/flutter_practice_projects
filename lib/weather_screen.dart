@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import 'additional_info_item.dart';
+import 'wearther_forecast_item.dart';
+
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
 
@@ -56,19 +59,57 @@ class WeatherScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 30,),
             Align(
 
               child: Text('Weather Forecast', style: TextStyle(
                 fontSize: 24,
               ),),
             ),
-            Placeholder(fallbackHeight: 150,),
             SizedBox(height: 20,),
-            Placeholder(fallbackHeight: 150,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                  HourlyForecastItem(),
+                ],
+              ),
+            ),
+            SizedBox(height: 30,),
+            Align(
+              child: Text('Additional Forecast', style: TextStyle(
+                fontSize: 24,
+              ),),
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                AdditionalInfoItem(
+                  icon: Icons.water_drop,
+                  label: 'Humadity',
+                  value: '91',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.air,
+                  label: 'Wind Speed',
+                  value: '7.5',
+                ),
+                AdditionalInfoItem(
+                  icon: Icons.beach_access,
+                  label: 'Pressure',
+                  value: '1000',
+                ),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
+
