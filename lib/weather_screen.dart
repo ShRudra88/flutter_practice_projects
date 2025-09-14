@@ -91,7 +91,7 @@ class WeatherScreen extends StatelessWidget {
               children: [
                 AdditionalInfoItem(
                   icon: Icons.water_drop,
-                  label: 'Humadity',
+                  label: 'Humidity',
                   value: '91',
                 ),
                 AdditionalInfoItem(
